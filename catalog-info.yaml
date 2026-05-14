@@ -32,7 +32,7 @@ metadata:
     jenkins.io/job-full-name: Backstage_SSP_PoC/DSSP-JSP-Testing-04/main
     argocd/app-name: dssp-jsp-testing-04-prod
     backstage.io/kubernetes-id: DSSP-JSP-Testing-04
-    backstage.io/kubernetes-namespace: prod   # ← env se namespace
+    backstage.io/kubernetes-namespace: main  # ← env se namespace
     sonarqube.org/project-key: dssp-jsp-testing-04
 
 spec:
