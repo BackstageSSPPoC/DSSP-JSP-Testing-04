@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        APP_NAME = "DSSP-JSP-Testing-04".toLowerCase().trim()
+        APP_NAME = " DSSP-JSP-Testing-04".toLowerCase().trim()
         DOCKER_IMAGE = "chaitanyapandeygspann/${APP_NAME}"
         DOCKER_TAG = "1.0.${BUILD_NUMBER}"
         IMAGE_TAG = "${DOCKER_IMAGE}:${DOCKER_TAG}"
@@ -140,10 +140,10 @@ pipeline {
                     cp -r ../manifest-templates/* apps/${APP_NAME}/${DEPLOY_ENV}/ || true
 
                     # Replace all placeholders
-                    sed -i "s|\${APP_NAME}|${APP_NAME}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
-                    sed -i "s|\${DOCKER_IMAGE}|${IMAGE_TAG}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
-                    sed -i "s|\${APP_PORT}|${APP_PORTS}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
-                    sed -i "s|\${NAMESPACE}|${DEPLOY_NAMESPACE}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
+                    sed -i "s|\\${APP_NAME}|${APP_NAME}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
+                    sed -i "s|\\${DOCKER_IMAGE}|${IMAGE_TAG}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
+                    sed -i "s|\\${APP_PORT}|${APP_PORTS}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
+                    sed -i "s|\\${NAMESPACE}|${DEPLOY_NAMESPACE}|g" apps/${APP_NAME}/${DEPLOY_ENV}/*.yaml || true
 
                     git config user.email "jenkins@local"
                     git config user.name "jenkins"
